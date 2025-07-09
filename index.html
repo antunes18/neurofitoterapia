@@ -389,6 +389,14 @@
             background-color: #f0f7f0;
         }
         
+        .no-results {
+            grid-column: 1 / -1;
+            text-align: center;
+            padding: 40px;
+            font-size: 1.2rem;
+            color: var(--gray);
+        }
+        
         /* About Section */
         .about-section {
             background-color: white;
@@ -552,6 +560,18 @@
         @media (max-width: 768px) {
             nav ul {
                 display: none;
+                position: absolute;
+                top: 70px;
+                left: 0;
+                right: 0;
+                background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+                flex-direction: column;
+                padding: 20px;
+                text-align: center;
+            }
+            
+            nav ul.show {
+                display: flex;
             }
             
             .mobile-menu-btn {
@@ -607,13 +627,13 @@
                 <div class="logo-text">Neuro<span>Fito</span></div>
             </div>
             <nav>
-                <ul>
+                <ul id="navMenu">
                     <li><a href="#home">Início</a></li>
                     <li><a href="#about">Sobre</a></li>
                     <li><a href="#resources">Biblioteca</a></li>
                     <li><a href="#contact">Contato</a></li>
                 </ul>
-                <button class="mobile-menu-btn">
+                <button class="mobile-menu-btn" id="mobileMenuBtn">
                     <i class="fas fa-bars"></i>
                 </button>
             </nav>
@@ -679,177 +699,23 @@
                 <div class="search-container">
                     <div class="search-box">
                         <i class="fas fa-search"></i>
-                        <input type="text" placeholder="Pesquisar por título, autor ou palavra-chave...">
+                        <input type="text" id="searchInput" placeholder="Pesquisar por título, autor ou palavra-chave...">
                     </div>
-                    <button class="hero-btn">Buscar</button>
+                    <button class="hero-btn" id="searchBtn">Buscar</button>
                 </div>
                 
                 <div class="filters">
-                    <div class="filter-btn active">Todos</div>
-                    <div class="filter-btn">Livros</div>
-                    <div class="filter-btn">Artigos</div>
-                    <div class="filter-btn">Legislação</div>
-                    <div class="filter-btn">Manifestos</div>
-                    <div class="filter-btn">Guias Clínicos</div>
+                    <div class="filter-btn active" data-filter="all">Todos</div>
+                    <div class="filter-btn" data-filter="livro">Livros</div>
+                    <div class="filter-btn" data-filter="artigo">Artigos</div>
+                    <div class="filter-btn" data-filter="legislacao">Legislação</div>
+                    <div class="filter-btn" data-filter="manifesto">Manifestos</div>
+                    <div class="filter-btn" data-filter="guia">Guias Clínicos</div>
                 </div>
             </div>
             
-            <div class="resources-grid">
-                <!-- Resource 1 -->
-                <div class="resource-card">
-                    <div class="card-header">
-                        <div class="resource-type">Livro</div>
-                        <div class="resource-title">Neurofitoterapia Clínica</div>
-                    </div>
-                    <div class="card-body">
-                        <div class="resource-meta">
-                            <div><i class="fas fa-user"></i> Caio Casimiro de Queiroz Silva</div>
-                            <div><i class="fas fa-calendar"></i> 2025</div>
-                        </div>
-                        <div class="resource-description">
-                            Obra fundamental que estabelece os princípios, protocolos e fundamentos científicos da Neurofitoterapia como abordagem clínica complementar.
-                        </div>
-                        <div class="resource-tags">
-                            <span class="tag">Fundamentos</span>
-                            <span class="tag">Protocolos</span>
-                            <span class="tag">Prática Clínica</span>
-                        </div>
-                    </div>
-                    <div class="card-footer">
-                        <a href="#" class="resource-link">Detalhes</a>
-                        <a href="#" class="resource-link secondary">PDF</a>
-                    </div>
-                </div>
-                
-                <!-- Resource 2 -->
-                <div class="resource-card">
-                    <div class="card-header">
-                        <div class="resource-type">Manifesto</div>
-                        <div class="resource-title">Manifesto da Neurofitoterapia</div>
-                    </div>
-                    <div class="card-body">
-                        <div class="resource-meta">
-                            <div><i class="fas fa-user"></i> Caio Casimiro</div>
-                            <div><i class="fas fa-calendar"></i> 2025</div>
-                        </div>
-                        <div class="resource-description">
-                            Documento que apresenta os fundamentos, diretrizes e objetivos da Neurofitoterapia como campo de atuação interdisciplinar.
-                        </div>
-                        <div class="resource-tags">
-                            <span class="tag">Fundamentos</span>
-                            <span class="tag">Diretrizes</span>
-                            <span class="tag">Visão</span>
-                        </div>
-                    </div>
-                    <div class="card-footer">
-                        <a href="#" class="resource-link">Detalhes</a>
-                        <a href="#" class="resource-link secondary">PDF</a>
-                    </div>
-                </div>
-                
-                <!-- Resource 3 -->
-                <div class="resource-card">
-                    <div class="card-header">
-                        <div class="resource-type">Legislação</div>
-                        <div class="resource-title">Política Nacional de Práticas Integrativas</div>
-                    </div>
-                    <div class="card-body">
-                        <div class="resource-meta">
-                            <div><i class="fas fa-building"></i> Ministério da Saúde</div>
-                            <div><i class="fas fa-calendar"></i> 2006/2017</div>
-                        </div>
-                        <div class="resource-description">
-                            Portarias que estabelecem as diretrizes para implementação e fortalecimento das Práticas Integrativas e Complementares no SUS.
-                        </div>
-                        <div class="resource-tags">
-                            <span class="tag">SUS</span>
-                            <span class="tag">PNPIC</span>
-                            <span class="tag">Legislação</span>
-                        </div>
-                    </div>
-                    <div class="card-footer">
-                        <a href="#" class="resource-link">Detalhes</a>
-                        <a href="#" class="resource-link secondary">PDF</a>
-                    </div>
-                </div>
-                
-                <!-- Resource 4 -->
-                <div class="resource-card">
-                    <div class="card-header">
-                        <div class="resource-type">Artigo Científico</div>
-                        <div class="resource-title">Plant-based Medicines for Anxiety Disorders</div>
-                    </div>
-                    <div class="card-body">
-                        <div class="resource-meta">
-                            <div><i class="fas fa-user"></i> Sarris, J. et al.</div>
-                            <div><i class="fas fa-calendar"></i> 2013</div>
-                        </div>
-                        <div class="resource-description">
-                            Revisão de estudos pré-clínicos e clínicos sobre o uso de plantas medicinais no tratamento de transtornos de ansiedade.
-                        </div>
-                        <div class="resource-tags">
-                            <span class="tag">Ansiedade</span>
-                            <span class="tag">Fitoterapia</span>
-                            <span class="tag">Revisão</span>
-                        </div>
-                    </div>
-                    <div class="card-footer">
-                        <a href="#" class="resource-link">Detalhes</a>
-                        <a href="#" class="resource-link secondary">PDF</a>
-                    </div>
-                </div>
-                
-                <!-- Resource 5 -->
-                <div class="resource-card">
-                    <div class="card-header">
-                        <div class="resource-type">Legislação</div>
-                        <div class="resource-title">Registro de Medicamentos Fitoterápicos</div>
-                    </div>
-                    <div class="card-body">
-                        <div class="resource-meta">
-                            <div><i class="fas fa-building"></i> ANVISA</div>
-                            <div><i class="fas fa-calendar"></i> 2014</div>
-                        </div>
-                        <div class="resource-description">
-                            Resolução RDC nº 26 que dispõe sobre o registro de medicamentos fitoterápicos no Brasil.
-                        </div>
-                        <div class="resource-tags">
-                            <span class="tag">ANVISA</span>
-                            <span class="tag">Regulamentação</span>
-                            <span class="tag">Medicamentos</span>
-                        </div>
-                    </div>
-                    <div class="card-footer">
-                        <a href="#" class="resource-link">Detalhes</a>
-                        <a href="#" class="resource-link secondary">PDF</a>
-                    </div>
-                </div>
-                
-                <!-- Resource 6 -->
-                <div class="resource-card">
-                    <div class="card-header">
-                        <div class="resource-type">Artigo Científico</div>
-                        <div class="resource-title">Nutritional and Herbal Supplements for Anxiety</div>
-                    </div>
-                    <div class="card-body">
-                        <div class="resource-meta">
-                            <div><i class="fas fa-user"></i> Lakhan, S. E. & Vieira, K. F.</div>
-                            <div><i class="fas fa-calendar"></i> 2010</div>
-                        </div>
-                        <div class="resource-description">
-                            Revisão sistemática sobre o uso de suplementos nutricionais e fitoterápicos para transtornos de ansiedade.
-                        </div>
-                        <div class="resource-tags">
-                            <span class="tag">Ansiedade</span>
-                            <span class="tag">Suplementos</span>
-                            <span class="tag">Revisão Sistemática</span>
-                        </div>
-                    </div>
-                    <div class="card-footer">
-                        <a href="#" class="resource-link">Detalhes</a>
-                        <a href="#" class="resource-link secondary">PDF</a>
-                    </div>
-                </div>
+            <div class="resources-grid" id="resourcesGrid">
+                <!-- Resources will be dynamically inserted here -->
             </div>
         </div>
     </section>
@@ -862,9 +728,9 @@
                     <h3>NeuroFito</h3>
                     <p>Repositório bibliográfico especializado em Neurofitoterapia, integrando conhecimento científico e práticas terapêuticas baseadas em plantas medicinais.</p>
                     <div class="social-links">
+                        <a href="https://wa.me/556298436361"><i class="fab fa-whatsapp"></i></a>
+                        <a href="https://instagram.com/neuropp.casimirodequeiroz"><i class="fab fa-instagram"></i></a>
                         <a href="#"><i class="fab fa-facebook-f"></i></a>
-                        <a href="#"><i class="fab fa-twitter"></i></a>
-                        <a href="#"><i class="fab fa-instagram"></i></a>
                         <a href="#"><i class="fab fa-linkedin-in"></i></a>
                     </div>
                 </div>
@@ -883,11 +749,11 @@
                 <div class="footer-col">
                     <h3>Categorias</h3>
                     <ul>
-                        <li><a href="#">Livros</a></li>
-                        <li><a href="#">Artigos Científicos</a></li>
-                        <li><a href="#">Legislação</a></li>
-                        <li><a href="#">Guias Clínicos</a></li>
-                        <li><a href="#">Manifestos</a></li>
+                        <li><a href="#" data-filter="livro">Livros</a></li>
+                        <li><a href="#" data-filter="artigo">Artigos Científicos</a></li>
+                        <li><a href="#" data-filter="legislacao">Legislação</a></li>
+                        <li><a href="#" data-filter="guia">Guias Clínicos</a></li>
+                        <li><a href="#" data-filter="manifesto">Manifestos</a></li>
                     </ul>
                 </div>
                 
@@ -906,23 +772,213 @@
     </footer>
 
     <script>
-        // Mobile menu toggle
-        document.querySelector('.mobile-menu-btn').addEventListener('click', function() {
-            const nav = document.querySelector('nav ul');
-            nav.style.display = nav.style.display === 'flex' ? 'none' : 'flex';
-        });
-        
-        // Filter buttons
+        // Sample data for resources
+        const resources = [
+            {
+                id: 1,
+                type: "livro",
+                title: "Neurofitoterapia Clínica",
+                author: "Caio Casimiro de Queiroz Silva",
+                year: "2025",
+                description: "Obra fundamental que estabelece os princípios, protocolos e fundamentos científicos da Neurofitoterapia como abordagem clínica complementar.",
+                tags: ["Fundamentos", "Protocolos", "Prática Clínica"],
+                pdfLink: "#"
+            },
+            {
+                id: 2,
+                type: "manifesto",
+                title: "Manifesto da Neurofitoterapia",
+                author: "Caio Casimiro",
+                year: "2025",
+                description: "Documento que apresenta os fundamentos, diretrizes e objetivos da Neurofitoterapia como campo de atuação interdisciplinar.",
+                tags: ["Fundamentos", "Diretrizes", "Visão"],
+                pdfLink: "#"
+            },
+            {
+                id: 3,
+                type: "legislacao",
+                title: "Política Nacional de Práticas Integrativas",
+                author: "Ministério da Saúde",
+                year: "2006/2017",
+                description: "Portarias que estabelecem as diretrizes para implementação e fortalecimento das Práticas Integrativas e Complementares no SUS.",
+                tags: ["SUS", "PNPIC", "Legislação"],
+                pdfLink: "#"
+            },
+            {
+                id: 4,
+                type: "artigo",
+                title: "Plant-based Medicines for Anxiety Disorders",
+                author: "Sarris, J. et al.",
+                year: "2013",
+                description: "Revisão de estudos pré-clínicos e clínicos sobre o uso de plantas medicinais no tratamento de transtornos de ansiedade.",
+                tags: ["Ansiedade", "Fitoterapia", "Revisão"],
+                pdfLink: "#"
+            },
+            {
+                id: 5,
+                type: "legislacao",
+                title: "Registro de Medicamentos Fitoterápicos",
+                author: "ANVISA",
+                year: "2014",
+                description: "Resolução RDC nº 26 que dispõe sobre o registro de medicamentos fitoterápicos no Brasil.",
+                tags: ["ANVISA", "Regulamentação", "Medicamentos"],
+                pdfLink: "#"
+            },
+            {
+                id: 6,
+                type: "artigo",
+                title: "Nutritional and Herbal Supplements for Anxiety",
+                author: "Lakhan, S. E. & Vieira, K. F.",
+                year: "2010",
+                description: "Revisão sistemática sobre o uso de suplementos nutricionais e fitoterápicos para transtornos de ansiedade.",
+                tags: ["Ansiedade", "Suplementos", "Revisão Sistemática"],
+                pdfLink: "#"
+            },
+            {
+                id: 7,
+                type: "guia",
+                title: "Guia de Fitoterápicos para Saúde Mental",
+                author: "Conselho Federal de Farmácia",
+                year: "2020",
+                description: "Guia prático para utilização de fitoterápicos em contextos de saúde mental com orientações clínicas.",
+                tags: ["Guias", "Prática Clínica", "Saúde Mental"],
+                pdfLink: "#"
+            },
+            {
+                id: 8,
+                type: "artigo",
+                title: "Efficacy of Herbal Treatments in Anxiety Management",
+                author: "Baldwin, D. S. et al.",
+                year: "2014",
+                description: "Revisão sistemática e meta-análise sobre a eficácia de tratamentos fitoterápicos para transtornos de ansiedade.",
+                tags: ["Ansiedade", "Meta-análise", "Eficácia"],
+                pdfLink: "#"
+            }
+        ];
+
+        // DOM elements
+        const resourcesGrid = document.getElementById('resourcesGrid');
         const filterButtons = document.querySelectorAll('.filter-btn');
+        const searchInput = document.getElementById('searchInput');
+        const searchBtn = document.getElementById('searchBtn');
+        const navMenu = document.getElementById('navMenu');
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+
+        // Current filter state
+        let currentFilter = 'all';
+        let currentSearch = '';
+
+        // Function to render resources
+        function renderResources() {
+            resourcesGrid.innerHTML = '';
+            
+            const filteredResources = resources.filter(resource => {
+                const matchesFilter = currentFilter === 'all' || resource.type === currentFilter;
+                const matchesSearch = currentSearch === '' || 
+                    resource.title.toLowerCase().includes(currentSearch) || 
+                    resource.author.toLowerCase().includes(currentSearch) || 
+                    resource.description.toLowerCase().includes(currentSearch) || 
+                    resource.tags.some(tag => tag.toLowerCase().includes(currentSearch));
+                
+                return matchesFilter && matchesSearch;
+            });
+            
+            if (filteredResources.length === 0) {
+                resourcesGrid.innerHTML = '<p class="no-results">Nenhum recurso encontrado. Tente ajustar sua busca ou filtro.</p>';
+                return;
+            }
+            
+            filteredResources.forEach(resource => {
+                const resourceCard = document.createElement('div');
+                resourceCard.className = 'resource-card';
+                resourceCard.innerHTML = `
+                    <div class="card-header">
+                        <div class="resource-type">${getTypeLabel(resource.type)}</div>
+                        <div class="resource-title">${resource.title}</div>
+                    </div>
+                    <div class="card-body">
+                        <div class="resource-meta">
+                            <div><i class="fas fa-user"></i> ${resource.author}</div>
+                            <div><i class="fas fa-calendar"></i> ${resource.year}</div>
+                        </div>
+                        <div class="resource-description">
+                            ${resource.description}
+                        </div>
+                        <div class="resource-tags">
+                            ${resource.tags.map(tag => `<span class="tag">${tag}</span>`).join('')}
+                        </div>
+                    </div>
+                    <div class="card-footer">
+                        <a href="#" class="resource-link">Detalhes</a>
+                        <a href="${resource.pdfLink}" class="resource-link secondary">PDF</a>
+                    </div>
+                `;
+                resourcesGrid.appendChild(resourceCard);
+            });
+        }
+
+        // Helper function to get type label
+        function getTypeLabel(type) {
+            const labels = {
+                'livro': 'Livro',
+                'artigo': 'Artigo',
+                'legislacao': 'Legislação',
+                'manifesto': 'Manifesto',
+                'guia': 'Guia Clínico'
+            };
+            return labels[type] || type;
+        }
+
+        // Filter button event listeners
         filterButtons.forEach(button => {
-            button.addEventListener('click', function() {
-                // Remove active class from all buttons
+            button.addEventListener('click', () => {
                 filterButtons.forEach(btn => btn.classList.remove('active'));
-                // Add active class to clicked button
-                this.classList.add('active');
+                button.classList.add('active');
+                currentFilter = button.dataset.filter;
+                renderResources();
             });
         });
-        
+
+        // Search functionality
+        function performSearch() {
+            currentSearch = searchInput.value.toLowerCase().trim();
+            renderResources();
+        }
+
+        searchBtn.addEventListener('click', performSearch);
+        searchInput.addEventListener('keyup', (e) => {
+            if (e.key === 'Enter') {
+                performSearch();
+            }
+        });
+
+        // Category links in footer
+        document.querySelectorAll('.footer-col a[data-filter]').forEach(link => {
+            link.addEventListener('click', (e) => {
+                e.preventDefault();
+                const filter = link.dataset.filter;
+                
+                // Update active filter button
+                filterButtons.forEach(btn => {
+                    btn.classList.remove('active');
+                    if (btn.dataset.filter === filter) {
+                        btn.classList.add('active');
+                    }
+                });
+                
+                currentFilter = filter;
+                renderResources();
+                
+                // Scroll to resources section
+                document.getElementById('resources').scrollIntoView({ behavior: 'smooth' });
+            });
+        });
+
+        // Mobile menu toggle
+        mobileMenuBtn.addEventListener('click', () => {
+            navMenu.classList.toggle('show');
+        });
+
         // Smooth scrolling for anchor links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function(e) {
@@ -939,10 +995,13 @@
                     });
                     
                     // Close mobile menu if open
-                    document.querySelector('nav ul').style.display = 'none';
+                    navMenu.classList.remove('show');
                 }
             });
         });
+
+        // Initial render
+        renderResources();
     </script>
 </body>
 </html>
