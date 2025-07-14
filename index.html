@@ -1,1007 +1,732 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Repositório Bibliográfico | Neurofitoterapia</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <meta name="description"
+        content="Conheça a Neurofitoterapia Clínica: abordagem integrativa que une neurociência e plantas medicinais para saúde mental. Livro do Dr. Caio Casimiro.">
+    <meta name="keywords"
+        content="neurofitoterapia, neurociência, plantas medicinais, saúde mental, livro, Caio Casimiro, terapia integrativa">
+    <meta name="author" content="Dr. Caio Casimiro de Queiroz Silva">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://neurofitoterapiaclinica.shop/">
+    <meta property="og:title" content="Neurofitoterapia Clínica - Livro do Dr. Caio Casimiro">
+    <meta property="og:description"
+        content="Abordagem integrativa que une neurociência e plantas medicinais para saúde mental. Compre o livro de referência na área.">
+    <meta property="og:image" content="https://neurofitoterapia.com/assets/livro-neurofitoterapia.jpg">
+
+    <title>Neurofitoterapia Clínica | Livro do Dr. Caio Casimiro</title>
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#1A1A1A',
+                        secondary: '#F5F5F5',
+                        accent: '#4A6B3D',
+                        earth: '#eac69e',
+                        light: '#D9D0C7',
+                        verde: '#008000',
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- AOS Library -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
+
     <style>
         :root {
-            --primary: #1a5d1a;
-            --secondary: #2c8a2c;
-            --accent: #e9b949;
-            --light: #f5f5f5;
-            --dark: #1a1a1a;
-            --gray: #444;
-            --light-gray: #e0e0e0;
-            --transition: all 0.3s ease;
+            --color-earth: #8C6A5D;
+            --color-green: #4A6B3D;
+            --color-light: #D9D0C7;
+            --color-dark: #1A1A1A;
         }
-        
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        }
-        
+
         body {
-            background-color: #f8f9fa;
-            color: #333;
-            line-height: 1.6;
+            font-family: 'Inter', sans-serif;
+            background-color: #000;
+            color: #fff;
+            scroll-behavior: smooth;
         }
-        
-        .container {
-            width: 90%;
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 15px;
+
+        .title-font {
+            font-family: 'Playfair Display', serif;
         }
-        
-        /* Header Styles */
-        header {
-            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
-            color: white;
-            padding: 15px 0;
-            box-shadow: 0 2px 15px rgba(0,0,0,0.1);
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-        }
-        
-        .header-container {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-        
-        .logo {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            font-size: 1.8rem;
-            font-weight: 700;
-        }
-        
-        .logo i {
-            color: var(--accent);
-        }
-        
-        .logo-text {
-            font-size: 1.5rem;
-        }
-        
-        .logo span {
-            color: var(--accent);
-        }
-        
-        nav ul {
-            display: flex;
-            list-style: none;
-            gap: 25px;
-        }
-        
-        nav a {
-            color: white;
-            text-decoration: none;
-            font-weight: 500;
-            font-size: 1.1rem;
-            transition: var(--transition);
+
+        .section-title {
             position: relative;
-        }
-        
-        nav a:hover {
-            color: var(--accent);
-        }
-        
-        nav a::after {
-            content: '';
-            position: absolute;
-            bottom: -5px;
-            left: 0;
-            width: 0;
-            height: 2px;
-            background-color: var(--accent);
-            transition: var(--transition);
-        }
-        
-        nav a:hover::after {
-            width: 100%;
-        }
-        
-        .mobile-menu-btn {
-            display: none;
-            background: none;
-            border: none;
-            color: white;
-            font-size: 1.5rem;
-            cursor: pointer;
-        }
-        
-        /* Hero Section */
-        .hero {
-            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), 
-                        url('https://images.unsplash.com/photo-1515378791036-0648a3ef77b2?ixlib=rb-4.0.3&auto=format&fit=crop&w=1950&q=80');
-            background-size: cover;
-            background-position: center;
-            color: white;
-            text-align: center;
-            padding: 100px 20px;
-            margin-bottom: 60px;
-        }
-        
-        .hero h1 {
-            font-size: 3.5rem;
-            margin-bottom: 20px;
-            font-weight: 700;
-        }
-        
-        .hero p {
-            font-size: 1.4rem;
-            max-width: 800px;
-            margin: 0 auto 30px;
-        }
-        
-        .hero-btn {
             display: inline-block;
-            background-color: var(--accent);
-            color: var(--dark);
-            padding: 12px 30px;
-            border-radius: 30px;
-            text-decoration: none;
+            margin-bottom: 3rem;
             font-weight: 600;
-            font-size: 1.1rem;
-            transition: var(--transition);
-            margin: 10px;
         }
-        
-        .hero-btn:hover {
-            background-color: #d6a63a;
-            transform: translateY(-3px);
-            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
-        }
-        
-        .hero-btn.secondary {
-            background-color: transparent;
-            border: 2px solid white;
-            color: white;
-        }
-        
-        .hero-btn.secondary:hover {
-            background-color: rgba(255,255,255,0.1);
-        }
-        
-        /* Section Headers */
-        .section-header {
-            text-align: center;
-            margin: 60px 0 40px;
-        }
-        
-        .section-header h2 {
-            font-size: 2.5rem;
-            color: var(--primary);
-            margin-bottom: 15px;
-            position: relative;
-            display: inline-block;
-        }
-        
-        .section-header h2::after {
+
+        .section-title::after {
             content: '';
             position: absolute;
-            bottom: -10px;
+            bottom: -15px;
             left: 50%;
             transform: translateX(-50%);
             width: 80px;
             height: 4px;
-            background-color: var(--accent);
-            border-radius: 2px;
+            background-color: var(--color-earth);
         }
-        
-        .section-header p {
-            font-size: 1.2rem;
-            color: var(--gray);
-            max-width: 700px;
-            margin: 20px auto 0;
+
+        .book-cover {
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+            transition: transform 0.4s ease;
+            border: 1px solid rgba(255, 255, 255, 0.1);
         }
-        
-        /* Search and Filters */
-        .search-section {
-            background-color: white;
-            border-radius: 10px;
-            padding: 30px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
-            margin-bottom: 40px;
+
+        .book-cover:hover {
+            transform: translateY(-15px) rotate(2deg);
         }
-        
-        .search-container {
-            display: flex;
-            gap: 15px;
-            margin-bottom: 20px;
-        }
-        
-        .search-box {
-            flex: 1;
+
+        .cta-button {
+            transition: all 0.3s ease;
             position: relative;
+            overflow: hidden;
+            letter-spacing: 0.5px;
+            font-weight: 500;
         }
-        
-        .search-box input {
-            width: 100%;
-            padding: 15px 20px 15px 50px;
-            border: 1px solid var(--light-gray);
-            border-radius: 30px;
-            font-size: 1rem;
-            transition: var(--transition);
-        }
-        
-        .search-box input:focus {
-            outline: none;
-            border-color: var(--primary);
-            box-shadow: 0 0 0 3px rgba(26, 93, 26, 0.1);
-        }
-        
-        .search-box i {
+
+        .cta-button::after {
+            content: '';
             position: absolute;
-            left: 20px;
-            top: 50%;
-            transform: translateY(-50%);
-            color: var(--gray);
-        }
-        
-        .filters {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 15px;
-            margin-top: 20px;
-        }
-        
-        .filter-btn {
-            background-color: white;
-            border: 1px solid var(--light-gray);
-            padding: 8px 20px;
-            border-radius: 30px;
-            cursor: pointer;
-            transition: var(--transition);
-            font-size: 0.95rem;
-        }
-        
-        .filter-btn:hover, .filter-btn.active {
-            background-color: var(--primary);
-            color: white;
-            border-color: var(--primary);
-        }
-        
-        /* Resources Grid */
-        .resources-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            gap: 30px;
-            margin-bottom: 60px;
-        }
-        
-        .resource-card {
-            background-color: white;
-            border-radius: 10px;
-            overflow: hidden;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
-            transition: var(--transition);
-            display: flex;
-            flex-direction: column;
-            height: 100%;
-        }
-        
-        .resource-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 15px 30px rgba(0,0,0,0.1);
-        }
-        
-        .card-header {
-            padding: 20px;
-            background-color: var(--primary);
-            color: white;
-        }
-        
-        .resource-type {
-            display: inline-block;
-            background-color: var(--accent);
-            color: var(--dark);
-            padding: 5px 15px;
-            border-radius: 30px;
-            font-size: 0.8rem;
-            font-weight: 600;
-            margin-bottom: 15px;
-        }
-        
-        .resource-title {
-            font-size: 1.4rem;
-            margin-bottom: 10px;
-            font-weight: 600;
-        }
-        
-        .card-body {
-            padding: 20px;
-            flex-grow: 1;
-            display: flex;
-            flex-direction: column;
-        }
-        
-        .resource-meta {
-            display: flex;
-            gap: 15px;
-            margin-bottom: 15px;
-            font-size: 0.9rem;
-            color: var(--gray);
-        }
-        
-        .resource-meta i {
-            margin-right: 5px;
-            color: var(--primary);
-        }
-        
-        .resource-description {
-            margin-bottom: 20px;
-            flex-grow: 1;
-        }
-        
-        .resource-tags {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 8px;
-            margin-bottom: 20px;
-        }
-        
-        .tag {
-            background-color: #e8f5e9;
-            color: var(--primary);
-            padding: 5px 12px;
-            border-radius: 30px;
-            font-size: 0.85rem;
-            font-weight: 500;
-        }
-        
-        .card-footer {
-            padding: 0 20px 20px;
-            display: flex;
-            gap: 10px;
-        }
-        
-        .resource-link {
-            flex: 1;
-            text-align: center;
-            background-color: var(--primary);
-            color: white;
-            padding: 10px;
-            border-radius: 5px;
-            text-decoration: none;
-            font-weight: 500;
-            transition: var(--transition);
-        }
-        
-        .resource-link:hover {
-            background-color: var(--secondary);
-        }
-        
-        .resource-link.secondary {
-            background-color: white;
-            color: var(--primary);
-            border: 1px solid var(--primary);
-        }
-        
-        .resource-link.secondary:hover {
-            background-color: #f0f7f0;
-        }
-        
-        .no-results {
-            grid-column: 1 / -1;
-            text-align: center;
-            padding: 40px;
-            font-size: 1.2rem;
-            color: var(--gray);
-        }
-        
-        /* About Section */
-        .about-section {
-            background-color: white;
-            border-radius: 10px;
-            padding: 50px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
-            margin-bottom: 60px;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 40px;
-            align-items: center;
-        }
-        
-        .about-content h3 {
-            font-size: 2rem;
-            color: var(--primary);
-            margin-bottom: 20px;
-        }
-        
-        .about-content p {
-            margin-bottom: 20px;
-            font-size: 1.1rem;
-            line-height: 1.7;
-        }
-        
-        .about-highlights {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 20px;
-            margin-top: 30px;
-        }
-        
-        .highlight {
-            background-color: #f0f7f0;
-            padding: 20px;
-            border-radius: 10px;
-            text-align: center;
-            transition: var(--transition);
-        }
-        
-        .highlight:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-        }
-        
-        .highlight i {
-            font-size: 2.5rem;
-            color: var(--primary);
-            margin-bottom: 15px;
-        }
-        
-        .highlight h4 {
-            color: var(--primary);
-            margin-bottom: 10px;
-        }
-        
-        .about-image {
-            border-radius: 10px;
-            overflow: hidden;
-            box-shadow: 0 15px 30px rgba(0,0,0,0.1);
-        }
-        
-        .about-image img {
+            top: 0;
+            left: -100%;
             width: 100%;
-            height: auto;
-            display: block;
-            transition: var(--transition);
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.15), transparent);
+            transition: 0.5s;
         }
-        
-        .about-image:hover img {
-            transform: scale(1.05);
+
+        .cta-button:hover::after {
+            left: 100%;
         }
-        
-        /* Footer */
-        footer {
-            background-color: var(--dark);
-            color: white;
-            padding: 60px 0 30px;
+
+        .professional-card {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            background: rgba(26, 26, 26, 0.7);
+            backdrop-filter: blur(10px);
         }
-        
-        .footer-grid {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 40px;
-            margin-bottom: 40px;
+
+        .professional-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 25px -5px rgba(74, 107, 61, 0.25);
+            border-color: var(--color-green);
         }
-        
-        .footer-col h3 {
-            font-size: 1.4rem;
-            margin-bottom: 20px;
-            color: var(--accent);
+
+        .testimonial-card {
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            background: rgba(26, 26, 26, 0.7);
         }
-        
-        .footer-col ul {
-            list-style: none;
+
+        .author-bg {
+            background: linear-gradient(135deg, #1a1a1a 0%, #0d0d0d 100%);
         }
-        
-        .footer-col ul li {
-            margin-bottom: 12px;
+
+        .earth-accent {
+            color: var(--color-earth);
         }
-        
-        .footer-col ul li a {
-            color: #ccc;
-            text-decoration: none;
-            transition: var(--transition);
+
+        .green-accent {
+            color: var(--color-green);
         }
-        
-        .footer-col ul li a:hover {
-            color: var(--accent);
-            padding-left: 5px;
+
+        .light-accent {
+            color: var(--color-light);
         }
-        
-        .footer-col p {
-            color: #aaa;
-            margin-bottom: 15px;
-            line-height: 1.7;
+
+        .border-earth {
+            border-color: var(--color-earth);
         }
-        
-        .social-links {
-            display: flex;
-            gap: 15px;
-            margin-top: 20px;
+
+        .bg-green {
+            background-color: var(--color-green);
         }
-        
-        .social-links a {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            width: 40px;
-            height: 40px;
-            background-color: #333;
-            border-radius: 50%;
-            color: white;
-            transition: var(--transition);
+
+        .bg-earth {
+            background-color: var(--color-earth);
         }
-        
-        .social-links a:hover {
-            background-color: var(--primary);
-            transform: translateY(-5px);
+
+        .bg-light {
+            background-color: var(--color-light);
         }
-        
-        .copyright {
-            text-align: center;
-            padding-top: 30px;
-            border-top: 1px solid #333;
-            color: #777;
-            font-size: 0.9rem;
+
+        .bg-dark {
+            background-color: var(--color-dark);
         }
-        
-        /* Responsive Styles */
-        @media (max-width: 992px) {
-            .about-section {
-                grid-template-columns: 1fr;
-            }
-            
-            .footer-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
+
+        .hero-pattern {
+            background:
+                radial-gradient(circle at 10% 20%, rgba(74, 107, 61, 0.1) 0%, transparent 20%),
+                radial-gradient(circle at 90% 80%, rgba(140, 106, 93, 0.1) 0%, transparent 20%),
+                linear-gradient(to bottom, #000, #0d0d0d);
         }
-        
+
+        .pattern-professionals {
+            background:
+                radial-gradient(circle at 90% 10%, rgba(74, 107, 61, 0.05) 0%, transparent 20%),
+                linear-gradient(to bottom, #0d0d0d, #000);
+        }
+
         @media (max-width: 768px) {
-            nav ul {
-                display: none;
-                position: absolute;
-                top: 70px;
-                left: 0;
-                right: 0;
-                background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
-                flex-direction: column;
-                padding: 20px;
-                text-align: center;
+            .section-title::after {
+                width: 60px;
+                bottom: -12px;
             }
-            
-            nav ul.show {
-                display: flex;
-            }
-            
-            .mobile-menu-btn {
-                display: block;
-            }
-            
-            .hero h1 {
-                font-size: 2.5rem;
-            }
-            
-            .hero p {
-                font-size: 1.1rem;
-            }
-            
-            .section-header h2 {
-                font-size: 2rem;
-            }
-            
-            .search-container {
-                flex-direction: column;
-            }
-            
-            .resources-grid {
-                grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-            }
-            
-            .about-highlights {
-                grid-template-columns: 1fr;
-            }
-        }
-        
-        @media (max-width: 576px) {
-            .footer-grid {
-                grid-template-columns: 1fr;
-            }
-            
-            .hero {
-                padding: 70px 20px;
-            }
-            
-            .section-header h2 {
-                font-size: 1.8rem;
+
+            .book-cover {
+                max-width: 280px;
+                height: auto;
             }
         }
     </style>
 </head>
-<body>
+
+<body class="antialiased">
     <!-- Header -->
-    <header>
-        <div class="container header-container">
-            <div class="logo">
-                <i class="fas fa-book-medical"></i>
-                <div class="logo-text">Neuro<span>Fito</span></div>
+    <header class="fixed w-full bg-black bg-opacity-95 z-50 border-b border-gray-800">
+        <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+            <div class="flex items-center">
+                <span class="text-2xl font-bold text-white title-font">Livro Neurofitoterapia Clínica</span>
             </div>
-            <nav>
-                <ul id="navMenu">
-                    <li><a href="#home">Início</a></li>
-                    <li><a href="#about">Sobre</a></li>
-                    <li><a href="#resources">Biblioteca</a></li>
-                    <li><a href="#contact">Contato</a></li>
-                </ul>
-                <button class="mobile-menu-btn" id="mobileMenuBtn">
-                    <i class="fas fa-bars"></i>
-                </button>
+
+            <nav class="hidden md:flex space-x-8">
+                <a href="#about" class="text-gray-300 hover:text-light-accent transition">Sobre o livro</a>
+                <a href="#author" class="text-gray-300 hover:text-light-accent transition">Autor</a>
+                <a href="#professionals" class="text-gray-300 hover:text-light-accent transition">Para quem?</a>
+                <a href="#book" class="text-gray-300 hover:text-light-accent transition">Livro</a>
             </nav>
+
+            <a href="#cta"
+                class="cta-button bg-verde text-white px-5 py-2 rounded-full font-medium hover:bg-opacity-90">Comprar
+                Livro</a>
         </div>
     </header>
 
     <!-- Hero Section -->
-    <section class="hero" id="home">
-        <div class="container">
-            <h1>Repositório Bibliográfico de Neurofitoterapia</h1>
-            <p>Conectando tradição fitoterápica e neurociência moderna em um acervo completo de referências científicas e clínicas</p>
-            <div class="hero-buttons">
-                <a href="#resources" class="hero-btn">Explorar Biblioteca</a>
-                <a href="#about" class="hero-btn secondary">Saiba Mais</a>
+    <section class="pt-32 pb-20 px-4 hero-pattern">
+        <div class="container mx-auto flex flex-col md:flex-row items-center">
+            <div class="md:w-1/2 mb-12 md:mb-0" data-aos="fade-right">
+                <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight title-font">
+                    Revolucione a saúde mental com a
+                    <span class="earth-accent">Neurofitoterapia</span>
+                </h1>
+                <p class="text-xl text-gray-300 mb-8 max-w-xl">
+                    Conheça a abordagem que integra neurociência clínica e plantas medicinais para tratamento
+                    complementar de transtornos neurológicos e emocionais.
+                </p>
+                <div class="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4">
+                    <a href="#cta"
+                        class="cta-button bg-verde text-white px-8 py-4 rounded-full font-medium text-lg hover:bg-opacity-90 text-center">
+                        Comprar Livro Agora
+                    </a>
+                    <a href="#about"
+                        class="border border-earth text-light-accent px-8 py-4 rounded-full font-medium text-lg hover:bg-dark text-center">
+                        Saiba Mais
+                    </a>
+                </div>
             </div>
-        </div>
-    </section>
 
-    <!-- About Section -->
-    <section class="about-section" id="about">
-        <div class="about-content">
-            <h3>Sobre a Neurofitoterapia</h3>
-            <p>A Neurofitoterapia é uma abordagem científica que integra conhecimentos da neurociência com o uso terapêutico de plantas medicinais para tratamento de distúrbios neurológicos, emocionais e cognitivos.</p>
-            <p>Este repositório reúne referências fundamentais que sustentam esta prática inovadora, incluindo artigos científicos, livros, legislações e diretrizes clínicas.</p>
-            
-            <div class="about-highlights">
-                <div class="highlight">
-                    <i class="fas fa-brain"></i>
-                    <h4>Neurociência</h4>
-                    <p>Fundamentos neurobiológicos</p>
-                </div>
-                <div class="highlight">
-                    <i class="fas fa-leaf"></i>
-                    <h4>Fitoterapia</h4>
-                    <p>Plantas medicinais</p>
-                </div>
-                <div class="highlight">
-                    <i class="fas fa-book"></i>
-                    <h4>Bibliografia</h4>
-                    <p>Referências completas</p>
-                </div>
-                <div class="highlight">
-                    <i class="fas fa-clinic-medical"></i>
-                    <h4>Aplicação Clínica</h4>
-                    <p>Protocolos terapêuticos</p>
-                </div>
-            </div>
-        </div>
-        <div class="about-image">
-            <img src="https://images.unsplash.com/photo-1591955506264-3f5a6834570a?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Plantas medicinais e neurociência">
-        </div>
-    </section>
-
-    <!-- Resources Section -->
-    <section id="resources">
-        <div class="container">
-            <div class="section-header">
-                <h2>Biblioteca de Referências</h2>
-                <p>Explore nosso acervo completo de recursos científicos e clínicos sobre Neurofitoterapia</p>
-            </div>
-            
-            <div class="search-section">
-                <div class="search-container">
-                    <div class="search-box">
-                        <i class="fas fa-search"></i>
-                        <input type="text" id="searchInput" placeholder="Pesquisar por título, autor ou palavra-chave...">
+            <div class="md:w-1/2 flex justify-center" data-aos="fade-left">
+                <div class="relative">
+                    <div class="book-cover bg-gray-800 w-64 h-96 rounded-lg transform rotate-3 overflow-hidden">
+                        <img src="/capa_livro_neurofitoterapia_clinica.jpeg"
+                            alt="Capa do livro Neurofitoterapia Clínica" class="w-full h-full object-cover">
                     </div>
-                    <button class="hero-btn" id="searchBtn">Buscar</button>
-                </div>
-                
-                <div class="filters">
-                    <div class="filter-btn active" data-filter="all">Todos</div>
-                    <div class="filter-btn" data-filter="livro">Livros</div>
-                    <div class="filter-btn" data-filter="artigo">Artigos</div>
-                    <div class="filter-btn" data-filter="legislacao">Legislação</div>
-                    <div class="filter-btn" data-filter="manifesto">Manifestos</div>
-                    <div class="filter-btn" data-filter="guia">Guias Clínicos</div>
                 </div>
             </div>
-            
-            <div class="resources-grid" id="resourcesGrid">
-                <!-- Resources will be dynamically inserted here -->
+        </div>
+    </section>
+
+    <!-- What is Neurofitoterapia -->
+    <section id="about" class="py-20 px-4 bg-black">
+        <div class="container mx-auto">
+            <h2 class="text-3xl md:text-4xl font-bold mb-16 text-center section-title title-font" data-aos="fade-up">O
+                que é Neurofitoterapia?</h2>
+
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                <div data-aos="fade-right">
+                    <p class="text-lg text-gray-300 mb-6">
+                        A Neurofitoterapia é uma prática que une os conhecimentos da neurociência clínica ao uso
+                        responsável e seguro de plantas medicinais com propriedades terapêuticas.
+                    </p>
+                    <p class="text-lg text-gray-300 mb-6">
+                        O termo vem da junção de "neuro" (sistema nervoso), "fito" (plantas) e "terapia" (cuidado). Essa
+                        abordagem passou a ser compreendida de maneira técnica, estruturada e cientificamente
+                        fundamentada com o lançamento do livro <span class="earth-accent font-medium">Neurofitoterapia
+                            Clínica</span>.
+                    </p>
+                    <p class="text-lg text-gray-300">
+                        A Neurofitoterapia propõe um modelo de cuidado que pode ser utilizado tanto em quadros leves
+                        quanto em transtornos mais densos, como esquizofrenia, Parkinson, bipolaridade e síndromes
+                        neurodegenerativas, sempre de forma complementar ao tratamento médico tradicional.
+                    </p>
+                </div>
+
+                <div class="grid grid-cols-2 gap-6" data-aos="fade-left">
+                    <div class="professional-card p-6 rounded-xl">
+                        <div class="text-earth text-4xl font-bold mb-4">+</div>
+                        <h3 class="text-xl font-bold mb-2 text-white">Integração</h3>
+                        <p class="text-gray-400">Une saberes tradicionais e científicos</p>
+                    </div>
+                    <div class="professional-card p-6 rounded-xl">
+                        <div class="text-earth text-4xl font-bold mb-4">✓</div>
+                        <h3 class="text-xl font-bold mb-2 text-white">Complementar</h3>
+                        <p class="text-gray-400">Apoio ao tratamento convencional</p>
+                    </div>
+                    <div class="professional-card p-6 rounded-xl">
+                        <div class="text-earth text-4xl font-bold mb-4">♥</div>
+                        <h3 class="text-xl font-bold mb-2 text-white">Individualizado</h3>
+                        <p class="text-gray-400">Respeita cada paciente e suas necessidades</p>
+                    </div>
+                    <div class="professional-card p-6 rounded-xl">
+                        <div class="text-earth text-4xl font-bold mb-4">🌱</div>
+                        <h3 class="text-xl font-bold mb-2 text-white">Natural</h3>
+                        <p class="text-gray-400">Baseado em plantas medicinais</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About the Author -->
+    <section id="author" class="py-20 px-4 author-bg">
+        <div class="container mx-auto">
+            <h2 class="text-3xl md:text-4xl font-bold mb-16 text-center section-title title-font" data-aos="fade-up">
+                Sobre o Autor</h2>
+
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-10 items-start">
+                <div class="flex justify-center lg:justify-end" data-aos="fade-right">
+                    <div class="relative">
+                        <div class="rounded-xl overflow-hidden w-72 h-96 border-2 border-earth">
+                            <img src="/foto_perfil_autor.jpeg" alt="Dr. Caio Casimiro"
+                                class="w-full h-full object-cover">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="lg:col-span-2" data-aos="fade-left">
+                    <h3 class="text-2xl md:text-3xl font-bold mb-6 text-light-accent title-font">Dr. Caio Casimiro de
+                        Queiroz Silva</h3>
+
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+                        <div class="border border-earth rounded-lg p-4">
+                            <h4 class="font-bold text-earth mb-2">Formação</h4>
+                            <ul class="space-y-2 text-gray-300">
+                                <li class="flex items-start">
+                                    <span class="text-earth mr-2">•</span>
+                                    <span>Neurocientista Clínico</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <span class="text-earth mr-2">•</span>
+                                    <span>Neuropsicopedagogo</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <span class="text-earth mr-2">•</span>
+                                    <span>Terapeuta Integrativo</span>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <div class="border border-earth rounded-lg p-4">
+                            <h4 class="font-bold text-earth mb-2">Profissional</h4>
+                            <ul class="space-y-2 text-gray-300">
+                                <li class="flex items-start">
+                                    <span class="text-earth mr-2">•</span>
+                                    <span>Atuação Profissional: Neurocientista Clínico, Neuropsicopedagogo, Terapeuta Integrativo.</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <span class="text-earth mr-2">•</span>
+                                    <span>Vínculo Atual: Tribunal Regional Federal da 1 Região 2 Vara Federal Cível (TRF1).</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <span class="text-earth mr-2">•</span>
+                                    <span>Autor do seu livro de Neurofitoterapia Clínica! =)</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="space-y-4">
+                        <p class="text-gray-300">
+                            <span class="font-medium text-light-accent">Caio Casimiro de Queiroz Silva</span> atua nas
+                            áreas de neurociência clínica, saúde mental e práticas integrativas. Desenvolve atividades
+                            clínicas e educacionais com foco em regulação emocional, cognição e transtornos
+                            neuropsicológicos.
+                        </p>
+                        <p class="text-gray-300">
+                            É o idealizador da metodologia denominada <span
+                                class="font-medium text-light-accent">Neurofitoterapia Clínica</span>, voltada à
+                            aplicação sistematizada de compostos fitoterápicos em contexto terapêutico, com base em
+                            princípios neurobiológicos e psicológicos.
+                        </p>
+                        <p class="text-gray-300">
+                            Possui experiência em atendimento clínico e apoio técnico nas áreas da psicanálise,
+                            gestalt-terapia, terapia cognitivo-comportamental e análise do comportamento. Atua na
+                            orientação de estudantes e profissionais da saúde mental, com foco em supervisão técnica,
+                            elaboração de pareceres e suporte em processos relacionados à saúde pública e
+                            previdenciária.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Professionals Section -->
+    <section id="professionals" class="py-20 px-4 pattern-professionals">
+        <div class="container mx-auto">
+            <h2 class="text-3xl md:text-4xl font-bold mb-16 text-center section-title title-font" data-aos="fade-up">Públicos-alvos</h2>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Professional 1 -->
+                <div class="professional-card rounded-xl p-6" data-aos="fade-up">
+                    <div class="flex items-start mb-4">
+                        <div class="bg-verde text-white p-3 rounded-lg mr-4">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
+                                stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
+                            </svg>
+                        </div>
+                        <div>
+                            <h3 class="font-bold text-lg text-white">Médicas(os)</h3>
+                            <p class="text-earth">Psiquiatras, Clínicos, Neurologistas</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-400">
+                        Profissionais com formação médica que podem integrar a Neurofitoterapia em seus tratamentos,
+                        especialmente na área de saúde mental e neurologia.
+                    </p>
+                </div>
+
+                <!-- Professional 2 -->
+                <div class="professional-card rounded-xl p-6" data-aos="fade-up" data-aos-delay="100">
+                    <div class="flex items-start mb-4">
+                        <div class="bg-verde text-white p-3 rounded-lg mr-4">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
+                                stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
+                            </svg>
+                        </div>
+                        <div>
+                            <h3 class="font-bold text-lg text-white">Psicólogas(os)</h3>
+                            <p class="text-earth">e Psicanalistas</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-400">
+                        Especialistas em saúde mental que podem utilizar a Neurofitoterapia como abordagem complementar
+                        em seus tratamentos terapêuticos.
+                    </p>
+                </div>
+
+                <!-- Professional 3 -->
+                <div class="professional-card rounded-xl p-6" data-aos="fade-up" data-aos-delay="200">
+                    <div class="flex items-start mb-4">
+                        <div class="bg-verde text-white p-3 rounded-lg mr-4">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
+                                stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M12 8v13m0-13V6a2 2 0 112 2h-2zm0 0V5.5A2.5 2.5 0 109.5 8H12zm-7 4h14M5 12a2 2 0 110-4h14a2 2 0 110 4M5 12v7a2 2 0 002 2h10a2 2 0 002-2v-7" />
+                            </svg>
+                        </div>
+                        <div>
+                            <h3 class="font-bold text-lg text-white">Nutricionistas</h3>
+                            <p class="text-earth">com formação em fitoterapia</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-400">
+                        Profissionais que podem recomendar plantas medicinais e fitoterápicos com segurança,
+                        integrando-os ao cuidado nutricional.
+                    </p>
+                </div>
+
+                <!-- Professional 4 -->
+                <div class="professional-card rounded-xl p-6" data-aos="fade-up">
+                    <div class="flex items-start mb-4">
+                        <div class="bg-verde text-white p-3 rounded-lg mr-4">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
+                                stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
+                            </svg>
+                        </div>
+                        <div>
+                            <h3 class="font-bold text-lg text-white">Terapeutas</h3>
+                            <p class="text-earth">Integrativos e Complementares</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-400">
+                        Profissionais que trabalham com abordagens holísticas e podem incorporar a Neurofitoterapia em
+                        suas práticas terapêuticas.
+                    </p>
+                </div>
+
+                <!-- Professional 5 -->
+                <div class="professional-card rounded-xl p-6" data-aos="fade-up" data-aos-delay="100">
+                    <div class="flex items-start mb-4">
+                        <div class="bg-verde text-white p-3 rounded-lg mr-4">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
+                                stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z" />
+                            </svg>
+                        </div>
+                        <div>
+                            <h3 class="font-bold text-lg text-white">Farmacêuticas(os)</h3>
+                            <p class="text-earth">Biomédicas(os), Enfermeiras(os)</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-400">
+                        Profissionais da saúde com conhecimento técnico para orientar sobre o uso seguro de
+                        fitoterápicos e suas interações.
+                    </p>
+                </div>
+
+                <!-- Professional 6 -->
+                <div class="professional-card rounded-xl p-6" data-aos="fade-up" data-aos-delay="200">
+                    <div class="flex items-start mb-4">
+                        <div class="bg-verde text-white p-3 rounded-lg mr-4">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
+                                stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
+                            </svg>
+                        </div>
+                        <div>
+                            <h3 class="font-bold text-lg text-white">Outros Profissionais</h3>
+                            <p class="text-earth">capacitados e em conformidade</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-400">
+                        Todos os profissionais de saúde devidamente habilitados que buscam formação contínua para
+                        aplicar a prática com responsabilidade.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Book Section -->
+    <section id="book" class="py-20 px-4 bg-gradient-to-b from-gray-900 to-black">
+        <div class="container mx-auto">
+            <h2 class="text-3xl md:text-4xl font-bold mb-16 text-center section-title title-font" data-aos="fade-up">O
+                Livro de Referência</h2>
+
+            <div class="flex flex-col lg:flex-row gap-12 items-center">
+                <div class="lg:w-2/5 flex justify-center" data-aos="fade-right">
+                    <div class="book-cover bg-gray-800 w-72 h-96 rounded-lg overflow-hidden">
+                        <img src="/capa_livro_neurofitoterapia_clinica.jpeg"
+                            alt="Capa alternativa do livro Neurofitoterapia Clínica" class="w-full h-full object-cover">
+                    </div>
+                </div>
+
+                <div class="lg:w-3/5" data-aos="fade-left">
+                    <h3 class="text-2xl md:text-3xl font-bold mb-4 text-light-accent title-font">Neurofitoterapia
+                        Clínica</h3>
+
+                    <div class="mb-6 p-4 bg-verde bg-opacity-20 rounded-lg border border-verde">
+                        <p class="text-lg">
+                            "A obra que organizou a Neurofitoterapia como uma proposta clínica complementar, alinhada
+                            com os princípios da saúde integrativa e baseada em evidências."
+                        </p>
+                    </div>
+
+                    <ul class="space-y-4 mb-8">
+                        <li class="flex items-start">
+                            <span class="text-earth mr-2">✓</span>
+                            <span>Abordagem técnica e cientificamente fundamentada</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-earth mr-2">✓</span>
+                            <span>Modelo de cuidado para quadros leves a transtornos mais densos</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-earth mr-2">✓</span>
+                            <span>Integração entre neurociência e plantas medicinais</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-earth mr-2">✓</span>
+                            <span>Aplicações práticas para ansiedade, depressão, TDAH, insônia e mais</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-earth mr-2">✓</span>
+                            <span>Baseado em estudos da fitofarmacologia e psiconeuroimunologia</span>
+                        </li>
+                    </ul>
+
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+                        <div class="border border-earth rounded-lg p-4">
+                            <p class="font-bold text-earth mb-2">Detalhes do Livro:</p>
+                            <p class="text-gray-300">Autor: Caio Casimiro de Queiroz Silva</p>
+                            <p class="text-gray-300">Editora: AB Editora</p>
+                            <p class="text-gray-300">ISBN: 978-65-5809-077-9</p>
+                        </div>
+                        <div class="border border-earth rounded-lg p-4">
+                            <p class="font-bold text-earth mb-2">Especificações:</p>
+                            <p class="text-gray-300">Tamanho: 14x23</p>
+                            <p class="text-gray-300">Páginas: 150.</p>
+                            <p class="text-gray-300">Idioma: Português</p>
+                        </div>
+                    </div>
+
+                    <a href="#cta"
+                        class="cta-button inline-block bg-verde text-white px-8 py-4 rounded-full font-medium text-lg hover:bg-opacity-90">
+                        Comprar Agora →
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section id="cta" class="py-20 px-4 bg-gradient-to-r from-gray-900 to-black">
+        <div class="container mx-auto max-w-4xl text-center">
+            <h2 class="text-3xl md:text-4xl font-bold mb-4 title-font" data-aos="fade-up">Transforme sua prática clínica
+                hoje mesmo</h2>
+            <p class="text-xl text-light-accent mb-12 max-w-2xl mx-auto" data-aos="fade-up" data-aos-delay="100">
+                Adquira o livro que está revolucionando o tratamento integrativo de transtornos neurológicos e
+                emocionais
+            </p>
+
+            <div class="bg-black bg-opacity-40 rounded-2xl p-8 mb-12 border border-earth" data-aos="fade-up"
+                data-aos-delay="200">
+                <div class="flex flex-col md:flex-row justify-between items-center gap-8">
+                    <div class="text-left">
+                        <h3 class="text-2xl font-bold mb-2 text-white title-font">Neurofitoterapia Clínica</h3>
+                        <p class="text-light-accent mb-4">Um Guia para Neurocientistas</p>
+                        <p class="text-3xl font-bold text-verde">R$ 79,90</p>
+                        <p class="text-sm text-white-500 mt-2">+ frete já incluso nesse valor</p>
+                    </div>
+
+                    <div class="flex-1 max-w-md">
+                        <form id="whatsapp-form" class="space-y-4">
+                            <input type="text" id="nome" placeholder="Digite aqui seu nome e sobrenome"
+                                class="w-full px-4 py-3 bg-gray-800 rounded-lg text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-earth">
+                            <button type="submit"
+                                class="cta-button w-full bg-verde text-white px-6 py-4 rounded-lg font-bold text-lg hover:bg-opacity-90">
+                                Quero Comprar o Livro!
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+            <div class="flex flex-wrap justify-center gap-6" data-aos="fade-up" data-aos-delay="300">
+                <div class="flex items-center">
+                    <span class="text-earth mr-2">✓</span>
+                    <span>Entrega com garantia para todo o Brasil! </span>
+                </div>
             </div>
         </div>
     </section>
 
     <!-- Footer -->
-    <footer id="contact">
-        <div class="container">
-            <div class="footer-grid">
-                <div class="footer-col">
-                    <h3>NeuroFito</h3>
-                    <p>Repositório bibliográfico especializado em Neurofitoterapia, integrando conhecimento científico e práticas terapêuticas baseadas em plantas medicinais.</p>
-                    <div class="social-links">
-                        <a href="https://wa.me/556298436361"><i class="fab fa-whatsapp"></i></a>
-                        <a href="https://instagram.com/neuropp.casimirodequeiroz"><i class="fab fa-instagram"></i></a>
-                        <a href="#"><i class="fab fa-facebook-f"></i></a>
-                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+    <footer class="py-12 px-4 bg-black border-t border-gray-800">
+        <div class="container mx-auto">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div class="md:col-span-2">
+                    <span class="text-2xl font-bold text-white title-font">Livro Neurofitoterapia Clínica</span>
+                    <p class="text-gray-500 mt-4 max-w-md">
+                        Instituto Casimiro Brasil - Pesquisa e formação em saúde integrativa e neurociência aplicada.
+                    </p>
+                    <p class="text-gray-500 mt-4">© 2025 Instituto Casimiro Brasil. Todos os direitos reservados.</p>
+                </div>
+
+                <div>
+                    <h4 class="text-lg font-bold text-white mb-4">Links Rápidos</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#about" class="text-gray-500 hover:text-light-accent transition">O que é
+                                Neurofitoterapia</a></li>
+                        <li><a href="#author" class="text-gray-500 hover:text-light-accent transition">Sobre o Autor</a>
+                        </li>
+                        <li><a href="#professionals"
+                                class="text-gray-500 hover:text-light-accent transition">Profissionais</a></li>
+                        <li><a href="#book" class="text-gray-500 hover:text-light-accent transition">O Livro</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <div>
+                        <h4 class="text-lg font-bold text-white mb-4">Contato</h4>
+                        <p class="text-gray-500 mb-2">Email: neurodr.casimiro@gmail.com</p>
+                        <p class="text-gray-500 mb-2">CNPJ 51.693.602/0001-02</p>
+                        <div class="flex space-x-4 mt-4">
+                            <a href="https://orcid.org/0009-0000-8886-0408" target="_blank"
+                                class="text-gray-500 hover:text-light-accent transition" title="ORCID">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                    fill="currentColor">
+                                    <path
+                                        d="M12 0c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm-.182 5.5h1.364v11h-1.364v-11zm6.182 3.818c0 2.909-2.182 5.273-5.273 5.273s-5.273-2.364-5.273-5.273 2.182-5.273 5.273-5.273 5.273 2.364 5.273 5.273zm-1.364 0c0-2.182-1.636-3.818-3.909-3.818s-3.909 1.636-3.909 3.818 1.636 3.818 3.909 3.818 3.909-1.636 3.909-3.818zm-8.818 7.682h-1.364v-1.364h1.364v1.364zm0-2.727h-1.364v-1.364h1.364v1.364zm0-2.727h-1.364v-1.364h1.364v1.364zm0-2.727h-1.364v-1.364h1.364v1.364zm0-2.727h-1.364v-1.364h1.364v1.364z" />
+                                </svg>
+                            </a>
+                            <a href="https://lattes.cnpq.br/6530980886870325" target="_blank"
+                                class="text-gray-500 hover:text-light-accent transition" title="Lattes">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                    fill="currentColor">
+                                    <path
+                                        d="M2.5 3h11c.825 0 1.5.675 1.5 1.5v15c0 .825-.675 1.5-1.5 1.5h-11c-.825 0-1.5-.675-1.5-1.5v-15c0-.825.675-1.5 1.5-1.5zm0 1.5v15h11v-15h-11zm2.5 3h6.5c.276 0 .5.224.5.5s-.224.5-.5.5h-6.5c-.276 0-.5-.224-.5-.5s.224-.5.5-.5zm0 2h6.5c.276 0 .5.224.5.5s-.224.5-.5.5h-6.5c-.276 0-.5-.224-.5-.5s.224-.5.5-.5zm0 2h6.5c.276 0 .5.224.5.5s-.224.5-.5.5h-6.5c-.276 0-.5-.224-.5-.5s.224-.5.5-.5zm0 2h6.5c.276 0 .5.224.5.5s-.224.5-.5.5h-6.5c-.276 0-.5-.224-.5-.5s.224-.5.5-.5zm0 2h6.5c.276 0 .5.224.5.5s-.224.5-.5.5h-6.5c-.276 0-.5-.224-.5-.5s.224-.5.5-.5z" />
+                                </svg>
+                            </a>
+                            <a href="https://www.tiktok.com/@neurofitoterapia" target="_blank"
+                                class="text-gray-500 hover:text-light-accent transition" title="TikTok">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                    fill="currentColor">
+                                    <path
+                                        d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5 20.1a6.34 6.34 0 0 0 10.86-4.43v-7a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1-.1z" />
+                                </svg>
+                            </a>
+                            <a href="https://instagram.com/neuropp.casimirodequeiroz" class="text-gray-500 hover:text-light-accent transition" title="Instagram">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                    fill="currentColor">
+                                    <path
+                                        d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" />
+                                </svg>
+                            </a>
+                        </div>
                     </div>
                 </div>
-                
-                <div class="footer-col">
-                    <h3>Links Rápidos</h3>
-                    <ul>
-                        <li><a href="#home">Início</a></li>
-                        <li><a href="#about">Sobre a Neurofitoterapia</a></li>
-                        <li><a href="#resources">Biblioteca de Recursos</a></li>
-                        <li><a href="#">Eventos</a></li>
-                        <li><a href="#">Publicações</a></li>
-                    </ul>
-                </div>
-                
-                <div class="footer-col">
-                    <h3>Categorias</h3>
-                    <ul>
-                        <li><a href="#" data-filter="livro">Livros</a></li>
-                        <li><a href="#" data-filter="artigo">Artigos Científicos</a></li>
-                        <li><a href="#" data-filter="legislacao">Legislação</a></li>
-                        <li><a href="#" data-filter="guia">Guias Clínicos</a></li>
-                        <li><a href="#" data-filter="manifesto">Manifestos</a></li>
-                    </ul>
-                </div>
-                
-                <div class="footer-col">
-                    <h3>Contato</h3>
-                    <p><i class="fas fa-envelope"></i> contato@neurofito.org.br</p>
-                    <p><i class="fas fa-phone"></i> (61) 99999-9999</p>
-                    <p><i class="fas fa-map-marker-alt"></i> Brasília - DF, Brasil</p>
-                </div>
-            </div>
-            
-            <div class="copyright">
-                <p>&copy; 2025 Instituto Casimiro Brasil. Todos os direitos reservados.</p>
             </div>
         </div>
     </footer>
 
+    <!-- AOS Initialization -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
-        // Sample data for resources
-        const resources = [
-            {
-                id: 1,
-                type: "livro",
-                title: "Neurofitoterapia Clínica",
-                author: "Caio Casimiro de Queiroz Silva",
-                year: "2025",
-                description: "Obra fundamental que estabelece os princípios, protocolos e fundamentos científicos da Neurofitoterapia como abordagem clínica complementar.",
-                tags: ["Fundamentos", "Protocolos", "Prática Clínica"],
-                pdfLink: "#"
-            },
-            {
-                id: 2,
-                type: "manifesto",
-                title: "Manifesto da Neurofitoterapia",
-                author: "Caio Casimiro",
-                year: "2025",
-                description: "Documento que apresenta os fundamentos, diretrizes e objetivos da Neurofitoterapia como campo de atuação interdisciplinar.",
-                tags: ["Fundamentos", "Diretrizes", "Visão"],
-                pdfLink: "#"
-            },
-            {
-                id: 3,
-                type: "legislacao",
-                title: "Política Nacional de Práticas Integrativas",
-                author: "Ministério da Saúde",
-                year: "2006/2017",
-                description: "Portarias que estabelecem as diretrizes para implementação e fortalecimento das Práticas Integrativas e Complementares no SUS.",
-                tags: ["SUS", "PNPIC", "Legislação"],
-                pdfLink: "#"
-            },
-            {
-                id: 4,
-                type: "artigo",
-                title: "Plant-based Medicines for Anxiety Disorders",
-                author: "Sarris, J. et al.",
-                year: "2013",
-                description: "Revisão de estudos pré-clínicos e clínicos sobre o uso de plantas medicinais no tratamento de transtornos de ansiedade.",
-                tags: ["Ansiedade", "Fitoterapia", "Revisão"],
-                pdfLink: "#"
-            },
-            {
-                id: 5,
-                type: "legislacao",
-                title: "Registro de Medicamentos Fitoterápicos",
-                author: "ANVISA",
-                year: "2014",
-                description: "Resolução RDC nº 26 que dispõe sobre o registro de medicamentos fitoterápicos no Brasil.",
-                tags: ["ANVISA", "Regulamentação", "Medicamentos"],
-                pdfLink: "#"
-            },
-            {
-                id: 6,
-                type: "artigo",
-                title: "Nutritional and Herbal Supplements for Anxiety",
-                author: "Lakhan, S. E. & Vieira, K. F.",
-                year: "2010",
-                description: "Revisão sistemática sobre o uso de suplementos nutricionais e fitoterápicos para transtornos de ansiedade.",
-                tags: ["Ansiedade", "Suplementos", "Revisão Sistemática"],
-                pdfLink: "#"
-            },
-            {
-                id: 7,
-                type: "guia",
-                title: "Guia de Fitoterápicos para Saúde Mental",
-                author: "Conselho Federal de Farmácia",
-                year: "2020",
-                description: "Guia prático para utilização de fitoterápicos em contextos de saúde mental com orientações clínicas.",
-                tags: ["Guias", "Prática Clínica", "Saúde Mental"],
-                pdfLink: "#"
-            },
-            {
-                id: 8,
-                type: "artigo",
-                title: "Efficacy of Herbal Treatments in Anxiety Management",
-                author: "Baldwin, D. S. et al.",
-                year: "2014",
-                description: "Revisão sistemática e meta-análise sobre a eficácia de tratamentos fitoterápicos para transtornos de ansiedade.",
-                tags: ["Ansiedade", "Meta-análise", "Eficácia"],
-                pdfLink: "#"
-            }
-        ];
-
-        // DOM elements
-        const resourcesGrid = document.getElementById('resourcesGrid');
-        const filterButtons = document.querySelectorAll('.filter-btn');
-        const searchInput = document.getElementById('searchInput');
-        const searchBtn = document.getElementById('searchBtn');
-        const navMenu = document.getElementById('navMenu');
-        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
-
-        // Current filter state
-        let currentFilter = 'all';
-        let currentSearch = '';
-
-        // Function to render resources
-        function renderResources() {
-            resourcesGrid.innerHTML = '';
-            
-            const filteredResources = resources.filter(resource => {
-                const matchesFilter = currentFilter === 'all' || resource.type === currentFilter;
-                const matchesSearch = currentSearch === '' || 
-                    resource.title.toLowerCase().includes(currentSearch) || 
-                    resource.author.toLowerCase().includes(currentSearch) || 
-                    resource.description.toLowerCase().includes(currentSearch) || 
-                    resource.tags.some(tag => tag.toLowerCase().includes(currentSearch));
-                
-                return matchesFilter && matchesSearch;
-            });
-            
-            if (filteredResources.length === 0) {
-                resourcesGrid.innerHTML = '<p class="no-results">Nenhum recurso encontrado. Tente ajustar sua busca ou filtro.</p>';
-                return;
-            }
-            
-            filteredResources.forEach(resource => {
-                const resourceCard = document.createElement('div');
-                resourceCard.className = 'resource-card';
-                resourceCard.innerHTML = `
-                    <div class="card-header">
-                        <div class="resource-type">${getTypeLabel(resource.type)}</div>
-                        <div class="resource-title">${resource.title}</div>
-                    </div>
-                    <div class="card-body">
-                        <div class="resource-meta">
-                            <div><i class="fas fa-user"></i> ${resource.author}</div>
-                            <div><i class="fas fa-calendar"></i> ${resource.year}</div>
-                        </div>
-                        <div class="resource-description">
-                            ${resource.description}
-                        </div>
-                        <div class="resource-tags">
-                            ${resource.tags.map(tag => `<span class="tag">${tag}</span>`).join('')}
-                        </div>
-                    </div>
-                    <div class="card-footer">
-                        <a href="#" class="resource-link">Detalhes</a>
-                        <a href="${resource.pdfLink}" class="resource-link secondary">PDF</a>
-                    </div>
-                `;
-                resourcesGrid.appendChild(resourceCard);
-            });
-        }
-
-        // Helper function to get type label
-        function getTypeLabel(type) {
-            const labels = {
-                'livro': 'Livro',
-                'artigo': 'Artigo',
-                'legislacao': 'Legislação',
-                'manifesto': 'Manifesto',
-                'guia': 'Guia Clínico'
-            };
-            return labels[type] || type;
-        }
-
-        // Filter button event listeners
-        filterButtons.forEach(button => {
-            button.addEventListener('click', () => {
-                filterButtons.forEach(btn => btn.classList.remove('active'));
-                button.classList.add('active');
-                currentFilter = button.dataset.filter;
-                renderResources();
-            });
+        AOS.init({
+            duration: 800,
+            once: true,
+            easing: 'ease-in-out'
         });
 
-        // Search functionality
-        function performSearch() {
-            currentSearch = searchInput.value.toLowerCase().trim();
-            renderResources();
-        }
-
-        searchBtn.addEventListener('click', performSearch);
-        searchInput.addEventListener('keyup', (e) => {
-            if (e.key === 'Enter') {
-                performSearch();
-            }
+        const form = document.getElementById('whatsapp-form');
+        form.addEventListener('submit', function (event) {
+            event.preventDefault();
+            const nome = document.getElementById('nome').value;
+            const mensagem = `Olá, gostaria de comprar minha cópia do seu livro 'Neurofitoterapia Clínica'. Meu nome é ${nome}.`;
+            const url = `https://wa.me/+556298436361?text=${encodeURIComponent(mensagem)}`;
+            window.open(url, '_blank');
         });
-
-        // Category links in footer
-        document.querySelectorAll('.footer-col a[data-filter]').forEach(link => {
-            link.addEventListener('click', (e) => {
-                e.preventDefault();
-                const filter = link.dataset.filter;
-                
-                // Update active filter button
-                filterButtons.forEach(btn => {
-                    btn.classList.remove('active');
-                    if (btn.dataset.filter === filter) {
-                        btn.classList.add('active');
-                    }
-                });
-                
-                currentFilter = filter;
-                renderResources();
-                
-                // Scroll to resources section
-                document.getElementById('resources').scrollIntoView({ behavior: 'smooth' });
-            });
-        });
-
-        // Mobile menu toggle
-        mobileMenuBtn.addEventListener('click', () => {
-            navMenu.classList.toggle('show');
-        });
-
-        // Smooth scrolling for anchor links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function(e) {
-                e.preventDefault();
-                
-                const targetId = this.getAttribute('href');
-                if (targetId === '#') return;
-                
-                const targetElement = document.querySelector(targetId);
-                if (targetElement) {
-                    window.scrollTo({
-                        top: targetElement.offsetTop - 80,
-                        behavior: 'smooth'
-                    });
-                    
-                    // Close mobile menu if open
-                    navMenu.classList.remove('show');
-                }
-            });
-        });
-
-        // Initial render
-        renderResources();
     </script>
 </body>
+
 </html>
